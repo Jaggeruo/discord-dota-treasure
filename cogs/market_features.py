@@ -4,17 +4,17 @@ from steam_community_market import Market, AppID
 from datetime import datetime
 
 
-class market_features(commands.Cog):
+class market_features(commands.Cog, name="Market_features"):
     def __init__(self, client):
         self.client = client
         self.market = Market("PLN")
 
     @commands.command()
-    async def skarb(self, ctx, year):
-        skrzynki = ["Immortal Treasure I ",
-                    "Immortal Treasure II ", "Immortal Treasure III "]
+    async def treasure(self, ctx, year):
+        chest = ["Immortal Treasure I ",
+                 "Immortal Treasure II ", "Immortal Treasure III "]
 
-        for item in skrzynki:
+        for item in chest:
             self.price = self.market.get_prices(item + year, AppID.DOTA2)
 
             embed = discord.Embed(

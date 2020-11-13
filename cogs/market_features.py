@@ -7,7 +7,8 @@ from datetime import datetime
 class market_features(commands.Cog, name="Market_features"):
     def __init__(self, client):
         self.client = client
-        self.market = Market("PLN")
+        self.currency = "PLN"
+        self.market = Market(self.currency)
 
     @commands.command()
     async def treasure(self, ctx, year):
@@ -18,7 +19,7 @@ class market_features(commands.Cog, name="Market_features"):
             self.price = self.market.get_prices(item + year, AppID.DOTA2)
 
             embed = discord.Embed(
-                title=f"{item} {year}", description=f"Lowest price: {self.price['lowest_price']} zł\nMedian price: {self.price['median_price']} zł", color=0x00ff00)
+                title=f"{item} {year}", description=f"Lowest price: {self.price['lowest_price']} {self.currency}\nAverage price: {self.price['median_price']} {self.currency}", color=0x00ff00)
             embed.set_footer(
                 text=datetime.now().strftime("%d.%m.%Y %H:%M:%S"))
             await ctx.send(embed=embed)

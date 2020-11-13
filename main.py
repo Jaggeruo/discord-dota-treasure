@@ -34,7 +34,7 @@ async def shutdown(ctx):
 
 @client.command()
 async def ping(ctx):
-    await ctx.send(f"Pong! Opóźnienie: {round(client.latency, 2) * 1000 } ms")
+    await ctx.send(f"Pong! Latency: {round(client.latency, 2) * 1000 } ms")
 
 
 @client.command()
@@ -42,7 +42,7 @@ async def ping(ctx):
 async def setprefix(ctx, prefix):
 
     if(len(prefix) >= 2):
-        await ctx.send("Przyjmuje tylko prefix jednoznakowy.")
+        await ctx.send("Only one character prefix.")
     else:
         with open("data/data.json", "w") as data_file:
             data_dict["prefix"] = prefix
@@ -50,7 +50,7 @@ async def setprefix(ctx, prefix):
 
         client.command_prefix = prefix
 
-        await ctx.send(f"Prefix zmieniony na: {prefix}")
+        await ctx.send(f"New prefix: {prefix}")
 
 
 client.run(token)

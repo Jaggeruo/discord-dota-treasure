@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-from datetime import datetime
 
 
 class Help(commands.Cog, name="Help"):
@@ -10,7 +9,7 @@ class Help(commands.Cog, name="Help"):
     @commands.command()
     async def help(self, ctx):
         embed = discord.Embed(
-            title=f"Spis komend", description=f"prefix `.`\n\n**`.help`**\nPokazuje tę wiadomość\n\n**`.ping`**\nPokazuje opóźnienie bota\n\n**`.setprefix <prefix>`**\nUstawia nowy prefix\n\n**`.treasure <rok>`**\nPokazuje ceny Immortal Treasure I, II i III podanego roku", color=0xbc61d7)
+            title="Command list", description="prefix `.`\n\n**`.help`**\nShows this message\n\n**`.ping`**\nShows latency\n\n**`.setprefix <prefix>`**\nSets new prefix\n\n**`.treasure <rok>`**\nShows prices of Immortal Treasure I, II and III", color=0xbc61d7)
         await ctx.send(embed=embed)
 
 

@@ -14,15 +14,15 @@ class ErrorCog(commands.Cog, name="Error"):
                 return
             else:
                 embed = discord.Embed(
-                    title=f"Błąd w komendzie: {ctx.command}", description=f"Poprawna składnia: '{ctx.command.qualified_name} {ctx.command.signature}'\nError: {error}", color=0xbc61d7)
+                    title=f"Error in commnad: {ctx.command}", description=f"Correct syntax: '{ctx.command.qualified_name} {ctx.command.signature}'\nError: {error}", color=0xbc61d7)
                 embed.set_footer(
                     text=datetime.now().strftime("%d.%m.%Y %H:%M:%S"))
                 await ctx.send(embed=embed)
 
         except:
             embed = discord.Embed(
-                title=f"Błąd w komendzie: {ctx.command}",
-                description=f"Jeśli widzisz to coś poszło nie tak.\n{error}", colour=0xbc61d7)
+                title=f"Error in commnad: {ctx.command}",
+                description=f"If you see this something unexpected occured.\n{error}", colour=0xbc61d7)
             await ctx.send(embed=embed)
 
 

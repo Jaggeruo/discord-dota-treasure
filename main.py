@@ -3,7 +3,6 @@ import discord
 from discord.ext import commands
 import os
 
-# TODO custom help command
 
 with open("data/data.json", "r") as data_file:
     data_dict = json.load(data_file)
@@ -21,7 +20,8 @@ for filename in os.listdir("./cogs"):
 
 @client.event
 async def on_ready():
-    await client.change_presence(status=discord.Status.online, activity=discord.Game("Dota2 market"))
+    await client.change_presence(status=discord.Status.online,
+                                 activity=discord.Game("Dota2 market"))
     print("Bot ready")
 
 
